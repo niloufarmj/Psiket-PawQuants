@@ -5,6 +5,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+
+    public bool isGamePaused;
+
+    public PlayerController first, second;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +23,19 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
-        Debug.Log("Ha Ha You Win!");
+        Debug.Log("Ha Ha You Win! :>");
     }
-    
+
+    public void Lose()
+    {
+        Debug.Log("Sorry U Lost! :<");
+    }
+
+    public void StopWalking()
+    {
+        first.animator.SetBool("Walking", false);
+        second.animator.SetBool("Walking", false);
+        isGamePaused = true;
+    }
+
 }

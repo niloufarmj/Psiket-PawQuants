@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DeadWall
   - XGate
+  - OuterArea
   layers:
   - Default
   - TransparentFX
