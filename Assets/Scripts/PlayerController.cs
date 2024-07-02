@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public Gate currentGate;
 
-    public GameObject xGate, xGateSelected;
+    public GameObject[] xGate, xGateSelected, hGate, hGateSelected, yGate, yGateSelected;
     public GameManager gameManager; // Reference to your GameManager script
 
     // 0: totally outside
@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     // 2: inside, collided with inner collider
     public int PlayerOnGate = 0;
 
+    public bool isLeft;
 
     Vector2 velocity;
 
@@ -39,12 +40,31 @@ public class PlayerController : MonoBehaviour
                 velocity.x = Input.GetAxisRaw("Horizontal");
                 velocity.y = Input.GetAxisRaw("Vertical");
             }
-            else if (currentGate == Gate.X)
+            else if (currentGate == Gate.X || currentGate == Gate.Y)
             {
                 velocity.x = -Input.GetAxisRaw("Horizontal");
                 velocity.y = -Input.GetAxisRaw("Vertical");
             }
-
+            else if (currentGate == Gate.H)
+            {
+                velocity.x = Input.GetAxisRaw("Vertical");
+                velocity.y = -Input.GetAxisRaw("Horizontal");
+            }
+            else if (currentGate == Gate.XH)
+            {
+                velocity.x = -Input.GetAxisRaw("Vertical");
+                velocity.y = Input.GetAxisRaw("Horizontal");
+            }
+            else if (currentGate == Gate.YH)
+            {
+                velocity.x = -Input.GetAxisRaw("Vertical");
+                velocity.y = Input.GetAxisRaw("Horizontal");
+            } 
+            else if (currentGate == Gate.XY)
+            {
+                velocity.x = Input.GetAxisRaw("Vertical");
+                velocity.y = -Input.GetAxisRaw("Horizontal");
+            }
             UpdateAnimation();
         }
     }
@@ -81,7 +101,11 @@ public class PlayerController : MonoBehaviour
         {
             gameManager.Lose();
         }
-        else if (other.gameObject.CompareTag("OuterArea"))
+        else if (other.gameObject.CompareTag("Finish"))
+        {
+            gameManager.PlayerWin(isLeft);
+        }
+        else if ((other.gameObject.CompareTag("OuterAreaX") || other.gameObject.CompareTag("OuterAreaH")) && PlayerOnGate != 2)
         {
             PlayerOnGate = 1;
         }
@@ -93,16 +117,76 @@ public class PlayerController : MonoBehaviour
                 if (currentGate == Gate.None)
                 {
                     currentGate = Gate.X;
-                    xGateSelected.SetActive(true);
-                    xGate.SetActive(false);
-                    StopGameForSeconds(1f);
+                    ChangeGate(Gate.X, other.gameObject, true);
                 }
                 else if (currentGate == Gate.X)
                 {
                     currentGate = Gate.None;
-                    xGateSelected.SetActive(false);
-                    xGate.SetActive(true);
-                    StopGameForSeconds(1f);
+                    ChangeGate(Gate.X, other.gameObject, false);
+                }
+                else if (currentGate == Gate.XH)
+                {
+                    currentGate = Gate.H;
+                    ChangeGate(Gate.X, other.gameObject, false);
+                }
+                else if (currentGate == Gate.Y)
+                {
+                    currentGate = Gate.None;
+                    ChangeGate(Gate.YH, other.gameObject, false);
+                }
+                PlayerOnGate = 2;
+            }
+            else if (other.gameObject.CompareTag("HGate"))
+            {
+                if (currentGate == Gate.None)
+                {
+                    currentGate = Gate.H;
+                    ChangeGate(Gate.H, other.gameObject, true);
+                }
+                else if (currentGate == Gate.H)
+                {
+                    currentGate = Gate.None;
+                    ChangeGate(Gate.H, other.gameObject, false);
+                }
+                else if (currentGate == Gate.X)
+                {
+                    currentGate = Gate.XH;
+                    ChangeGate(Gate.H, other.gameObject, true);
+                }
+                else if (currentGate == Gate.XH)
+                {
+                    currentGate = Gate.X;
+                    ChangeGate(Gate.H, other.gameObject, false);
+                }
+                else if (currentGate == Gate.YH)
+                {
+                    currentGate = Gate.Y;
+                    ChangeGate(Gate.H, other.gameObject, false);
+                }
+                PlayerOnGate = 2;
+            }
+            else if (other.gameObject.CompareTag("YGate"))
+            {
+                if (currentGate == Gate.H)
+                {
+                    currentGate = Gate.YH;
+                    ChangeGate(Gate.YH, other.gameObject, true);
+                }
+                else if (currentGate == Gate.XH)
+                {
+                    currentGate = Gate.H;
+                    ChangeGate(Gate.YH, other.gameObject, false);
+                    ChangeGate(Gate.X, other.gameObject, false);
+                }
+                else if (currentGate == Gate.YH)
+                {
+                    currentGate = Gate.H;
+                    ChangeGate(Gate.YH, other.gameObject, false);
+                }
+                else if (currentGate == Gate.Y)
+                {
+                    currentGate = Gate.None;
+                    ChangeGate(Gate.YH, other.gameObject, false);
                 }
                 PlayerOnGate = 2;
             }
@@ -111,35 +195,165 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("OuterArea"))
+        if (other.gameObject.CompareTag("OuterAreaX"))
         {
             if (PlayerOnGate == 1)
             {
+                PlayerOnGate = 2;
                 if (currentGate == Gate.None)
                 {
                     currentGate = Gate.X;
-                    xGateSelected.SetActive(true);
-                    xGate.SetActive(false);
-                    StopGameForSeconds(1f);
+                    ChangeGate(Gate.X, other.gameObject, true);
                 }
                 else if (currentGate == Gate.X)
                 {
                     currentGate = Gate.None;
-                    xGateSelected.SetActive(false);
-                    xGate.SetActive(true);
-                    StopGameForSeconds(1f);
+                    ChangeGate(Gate.X, other.gameObject, false);
                 }
+                else if (currentGate == Gate.H)
+                {
+                    currentGate = Gate.XH;
+                    ChangeGate(Gate.X, other.gameObject, true);
+                }
+                else if (currentGate == Gate.XH)
+                {
+                    currentGate = Gate.H;
+                    ChangeGate(Gate.X, other.gameObject, false);
+                } 
+                else if (currentGate == Gate.Y)
+                {
+                    currentGate = Gate.None;
+                    ChangeGate(Gate.YH, other.gameObject, false);
+                }
+
+            } else
+                PlayerOnGate = 0;
+        }
+        else if (other.gameObject.CompareTag("OuterAreaH"))
+        {
+            if (PlayerOnGate == 1)
+            {
+                PlayerOnGate = 2;
+                if (currentGate == Gate.None)
+                {
+                    currentGate = Gate.H;
+                    ChangeGate(Gate.H, other.gameObject, true);
+                }
+                else if (currentGate == Gate.H)
+                {
+                    currentGate = Gate.None;
+                    ChangeGate(Gate.H, other.gameObject, false);
+                }
+                else if (currentGate == Gate.X)
+                {
+                    currentGate = Gate.XH;
+                    ChangeGate(Gate.H, other.gameObject, true);
+                }
+                else if (currentGate == Gate.XH)
+                {
+                    currentGate = Gate.X;
+                    ChangeGate(Gate.H, other.gameObject, false);
+                }
+                else if (currentGate == Gate.YH)
+                {
+                    currentGate = Gate.Y;
+                    ChangeGate(Gate.H, other.gameObject, false);
+                }
+
+
             }
-            PlayerOnGate = 0;
+            else
+                PlayerOnGate = 0;
+        }
+        else if (other.gameObject.CompareTag("OuterAreaY"))
+        {
+            if (PlayerOnGate == 1)
+            {
+                PlayerOnGate = 2;
+                if (currentGate == Gate.H)
+                {
+                    currentGate = Gate.YH;
+                    ChangeGate(Gate.YH, other.gameObject, true);
+                }
+                else if (currentGate == Gate.XH)
+                {
+                    currentGate = Gate.H;
+                    ChangeGate(Gate.YH, other.gameObject, false);
+                    ChangeGate(Gate.X, other.gameObject, false);
+                }
+                else if (currentGate == Gate.YH)
+                {
+                    currentGate = Gate.H;
+                    ChangeGate(Gate.YH, other.gameObject, false);
+                }
+                else if (currentGate == Gate.Y)
+                {
+                    currentGate = Gate.None;
+                    ChangeGate(Gate.YH, other.gameObject, false);
+                }
+
+            }
+            else
+                PlayerOnGate = 0;
+        }
+        else if (other.gameObject.CompareTag("Finish"))
+        {
+            if (isLeft)
+                gameManager.leftWin = false;
+            else
+                gameManager.rightWin = false;
         }
     }
 
-    public void StopGameForSeconds(float seconds)
+    private void ChangeGate(Gate gate, GameObject other, bool enabled)
     {
-        StartCoroutine(StopGameCoroutine(seconds));
+        if (gate == Gate.X)
+        {
+            for (int i = 0; i < xGateSelected.Length; i++)
+                xGateSelected[i].SetActive(enabled);
+
+            for (int i = 0; i < xGate.Length; i++)
+                xGate[i].SetActive(!enabled);
+        }
+        else if (gate == Gate.H)
+        {
+            for (int i = 0; i < hGateSelected.Length; i++)
+                hGateSelected[i].SetActive(enabled);
+
+            for (int i = 0; i < hGate.Length; i++)
+                hGate[i].SetActive(!enabled);
+        }
+        else if (gate == Gate.YH)
+        {
+            for (int i = 0; i < yGateSelected.Length; i++)
+                yGateSelected[i].SetActive(enabled);
+
+            for (int i = 0; i < yGate.Length; i++)
+                yGate[i].SetActive(!enabled);
+        }
+        
+
+
+        // Get the child GameObject named "shader"
+        GameObject shaderGameObject = other.transform.parent.gameObject.transform.Find("Shader").gameObject;
+
+        // Check if the "shader" GameObject was found
+        if (shaderGameObject != null)
+        {
+            shaderGameObject.SetActive(true);
+        }
+
+        gameObject.transform.position = new Vector2(other.transform.position.x, other.transform.position.y + 0.4f);
+
+        StopGameForSeconds(1f, shaderGameObject);
     }
 
-    private IEnumerator StopGameCoroutine(float seconds)
+    public void StopGameForSeconds(float seconds, GameObject shader)
+    {
+        StartCoroutine(StopGameCoroutine(seconds, shader));
+    }
+
+    private IEnumerator StopGameCoroutine(float seconds, GameObject shader)
     {
         gameManager.StopWalking();
 
@@ -147,6 +361,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(seconds);
 
         gameManager.isGamePaused = false;
+        shader.SetActive(false);
     }
 }
 
@@ -154,5 +369,9 @@ public enum Gate
 {
     None,
     X, 
-    H
+    H,
+    XH,
+    YH,
+    XY,
+    Y
 }
