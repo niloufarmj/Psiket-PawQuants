@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     public GameData data;
 
     public PlayerController first, second;
+
+    public InGameUIManager UIManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +36,12 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
+        UIManager.ShowWinMenu();
+        Debug.Log("Ha Ha You Win! :>");
+    }
+
+    public void NextLevel()
+    {
         if (data.currentLevel == data.lastUnlockedLevel)
         {
             if (data.lastUnlockedLevel < 15)
@@ -41,12 +50,11 @@ public class GameManager : MonoBehaviour
         }
 
         SceneManager.LoadScene("Levels");
-
-        Debug.Log("Ha Ha You Win! :>");
     }
 
     public void Lose()
     {
+        UIManager.ShowLoseMenu();
         Debug.Log("Sorry U Lost! :<");
     }
 
@@ -55,6 +63,21 @@ public class GameManager : MonoBehaviour
         first.animator.SetBool("Walking", false);
         second.animator.SetBool("Walking", false);
         isGamePaused = true;
+    }
+
+    public void PauseGame()
+    {
+
+    }
+
+    public void ResumeGame()
+    {
+
+    }
+
+    public void ResetGame()
+    {
+        SceneManager.LoadScene("Level " + data.currentLevel);
     }
 
 }
