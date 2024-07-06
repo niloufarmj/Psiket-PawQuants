@@ -21,24 +21,17 @@ public class GameManager : MonoBehaviour
         instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (leftWin && rightWin)
-            Win();
-    }
-
+    
     public void PlayerWin(bool isLeft)
     {
         if (isLeft) leftWin = true;
         else rightWin = true;
+
+        if (leftWin && rightWin)
+            UIManager.ShowWinMenu();
     }
 
-    public void Win()
-    {
-        UIManager.ShowWinMenu();
-        Debug.Log("Ha Ha You Win! :>");
-    }
+   
 
     public void NextLevel()
     {

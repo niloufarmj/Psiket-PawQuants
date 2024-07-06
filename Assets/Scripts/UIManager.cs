@@ -28,6 +28,7 @@ public class UIManager : MonoBehaviour
     {
         data.soundOn = !data.soundOn;
         InitSound();
+          
     }
 
     public void CatSkinClicked()
@@ -49,9 +50,18 @@ public class UIManager : MonoBehaviour
     public void InitSound()
     {
         if (data.soundOn)
+        {
+            if (PersistentAudioPlayer.instance)
+                PersistentAudioPlayer.instance.GetComponent<AudioSource>().Play(0);
             soundIcon.sprite = soundOn;
+        }
+            
         else
+        {
+            PersistentAudioPlayer.instance.GetComponent<AudioSource>().Stop();
             soundIcon.sprite = soundOff;
+        }
+            
     }
 
     public void ChangeCatSkinLeft(int direction)
