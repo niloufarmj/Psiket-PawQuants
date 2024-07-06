@@ -355,12 +355,12 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator StopGameCoroutine(float seconds, GameObject shader)
     {
-        gameManager.StopWalking();
+        gameManager.PauseGame();
 
 
         yield return new WaitForSeconds(seconds);
 
-        gameManager.isGamePaused = false;
+        gameManager.ResumeGame();
         shader.SetActive(false);
     }
 }

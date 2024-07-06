@@ -46,10 +46,10 @@ public class GameManager : MonoBehaviour
         {
             if (data.lastUnlockedLevel < 15)
                 data.lastUnlockedLevel++;
-            data.levelStars[data.currentLevel - 1] = 3;
+            
         }
-
-        SceneManager.LoadScene("Levels");
+        data.currentLevel++;
+        SceneManager.LoadScene("Level " + data.currentLevel);
     }
 
     public void Lose()
@@ -58,26 +58,55 @@ public class GameManager : MonoBehaviour
         Debug.Log("Sorry U Lost! :<");
     }
 
-    public void StopWalking()
+    public void PauseGame()
     {
         first.animator.SetBool("Walking", false);
         second.animator.SetBool("Walking", false);
         isGamePaused = true;
     }
 
-    public void PauseGame()
-    {
-
-    }
 
     public void ResumeGame()
     {
-
+        isGamePaused = false;
     }
 
     public void ResetGame()
     {
         SceneManager.LoadScene("Level " + data.currentLevel);
+    }
+
+    public string GenerateCurrentStateString()
+    {
+        string leftState_leftSide = SingleStateGenerator(first.currentGate, 0);
+        string rightState_leftSide = SingleStateGenerator(second.currentGate, 0);
+
+        string leftState_rightSide = SingleStateGenerator(first.currentGate, 1);
+        string rightState_rightSide = SingleStateGenerator(second.currentGate, 1);
+
+        return "| " + leftState_leftSide + rightState_leftSide + " > + | " + leftState_rightSide + rightState_rightSide + " >" +
+            ((leftState_leftSide == "0" && rightState_leftSide == "0") ? " (bell state)" : "");
+
+    }
+
+    private string SingleStateGenerator(Gate current, int side)
+    {
+        switch (current)
+        {
+            case Gate.None:
+                return side.ToString();
+            case Gate.X:
+                return side == 1 ? "0" : "1";
+            case Gate.Y: //(same as Gate.X)
+                return side == 1 ? "0" : "1";
+            case Gate.H:
+                return side == 1 ? "-" : "+";
+            case Gate.XH:
+                return side == 1 ? "+" : "-";
+            case Gate.YH: // same as Gate.XH
+                return side == 1 ? "+" : "-";
+        }
+        return "";
     }
 
 }
