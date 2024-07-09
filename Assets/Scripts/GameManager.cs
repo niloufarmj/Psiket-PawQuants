@@ -15,10 +15,27 @@ public class GameManager : MonoBehaviour
 
     public InGameUIManager UIManager;
 
+    public bool isMobile;
+
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
+
+        if (data.levelStars[data.currentLevel - 1] == 0 && data.levelHelps[data.currentLevel - 1] != "")
+        {
+            UIManager.ShowHelp();
+        }
+
+
+        if (Application.isMobilePlatform)
+        {
+            isMobile = true;
+            UIManager.ShowMobileInput();
+        }
+        else isMobile = false;
+
+        UIManager.SetCanvas();
     }
 
     
@@ -39,6 +56,11 @@ public class GameManager : MonoBehaviour
         {
             if (data.lastUnlockedLevel < 15)
                 data.lastUnlockedLevel++;
+            else
+            {
+                SceneManager.LoadScene("Levels");
+                return; 
+            }
             
         }
         data.currentLevel++;

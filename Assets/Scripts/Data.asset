@@ -17,5 +17,50 @@ MonoBehaviour:
   lastUnlockedLevel: 1
   currentLevel: 1
   levelStars: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  levelHelps:
+  - Welcome to PawQuants! These two cats have been messing with the wrong yarn and
+    gotten themselves entangled. To bring them back to normal, you will need to untangle
+    them by recreating the patterns shown as islands on water. As they are entangled,
+    both characters will move with the same inputs. Use the arrow keys to move.
+  - There is a box here marked with an X. It is a quantum X gate. This will invert
+    the controls of whoever walks over it. Luckily, here it looks like it will make
+    this otherwise impossible pattern possible again.
+  - You may have noticed the Current State at the top of the screen. This tells you
+    the  current state of the entangled cats. This will be useful to understand when
+    the  puzzles get more complex and you need to keep track of how each characer
+    is  going to move. The state |00>+| 11> is the default state (bell state) where
+    both characters act as expected. It  is made up of 2 parts, each looking like
+    I xy> where x is the state of left  cat and y is the state of right cat. In the
+    first set of numbers, a 0 means  the character is acting as normal, a 1 means
+    the character's controls are inverted.  Later you will see there are other gates
+    and states to consider too.
+  - 
+  - 
+  - Look, this box is labeled with a H. It is a quantum Hadamard gate. If a  character
+    walks over this gate, it will modify the Current State for that character by 
+    changing a 0 to a + and vice versa, and changing a 1 to a - and vice versa.  
+    A character with a + state will have their controls rotated clockwise such that 
+    up -> right -> down -> left -> up   A character with a - state will have their
+    controls rotated the other way. See if you  can figure out how to solve this
+    pattern using this new gate.
+  - 
+  - 
+  - 'Be carful here, you may think that walking over an X gate while in the state
+    + or -  would swap them, but this is not the case. In fact, an X gate does nothing
+    if you''re  in the state + or -   You may have noticed that when you went over
+    an X gate and then a H gate you  were in the state -, but if you went over a
+    H gate and then an X gate you''d still be  in the X state. This is one thing
+    to note about quantum gates, they are non  commuting , meaning the order you
+    apply them can change the end results. '
+  - 
+  - Here is the final gate in this game, the Y gate. This will switch + into - and
+    - into +  while doing nothing to the 0 and 1 states. You can think of it asan
+    X gate for when  you're in the +/- basis.   Note that applying gates from right
+    to left, XH is the same as HY. It's almost as if  moving the X gate across the
+    Hadamard gate turns it into a Y gate.
+  - 
+  - 
+  - 
+  - 
   leftCatCurrentSkin: 2
   rightCatCurrentSkin: 4

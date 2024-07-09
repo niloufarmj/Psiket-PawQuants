@@ -1,5 +1,5 @@
+using EasyJoystick;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -11,7 +11,10 @@ public class PlayerController : MonoBehaviour
     public Gate currentGate;
 
     public GameObject[] xGate, xGateSelected, hGate, hGateSelected, yGate, yGateSelected;
-    public GameManager gameManager; // Reference to your GameManager script
+
+    private GameManager gameManager; // Reference to your GameManager script
+
+    public Joystick joystick;
 
     // 0: totally outside
     // 1: inside, not collided with inner collider
@@ -25,45 +28,64 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         currentGate = Gate.None;
+        gameManager = GameManager.instance;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (gameManager == null)
+        {
+            gameManager = GameManager.instance;
+        }
+
         if (!gameManager.isGamePaused)
         {
             velocity = Vector2.zero;
             rb.angularVelocity = 0f;
 
+            float horizontal, vertical;
+
+            if (gameManager.isMobile)
+            {
+                horizontal = joystick.Horizontal();
+                vertical = joystick.Vertical();
+            }
+            else
+            {
+                horizontal = Input.GetAxisRaw("Horizontal");
+                vertical = Input.GetAxisRaw("Vertical");
+            }
+
             if (currentGate == Gate.None)
             {
-                velocity.x = Input.GetAxisRaw("Horizontal");
-                velocity.y = Input.GetAxisRaw("Vertical");
+                velocity.x = horizontal;
+                velocity.y = vertical;
             }
             else if (currentGate == Gate.X || currentGate == Gate.Y)
             {
-                velocity.x = -Input.GetAxisRaw("Horizontal");
-                velocity.y = -Input.GetAxisRaw("Vertical");
+                velocity.x = -horizontal;
+                velocity.y = -vertical;
             }
             else if (currentGate == Gate.H)
             {
-                velocity.x = Input.GetAxisRaw("Vertical");
-                velocity.y = -Input.GetAxisRaw("Horizontal");
+                velocity.x = vertical;
+                velocity.y = -horizontal;
             }
             else if (currentGate == Gate.XH)
             {
-                velocity.x = -Input.GetAxisRaw("Vertical");
-                velocity.y = Input.GetAxisRaw("Horizontal");
+                velocity.x = -vertical;
+                velocity.y = horizontal;
             }
             else if (currentGate == Gate.YH)
             {
-                velocity.x = -Input.GetAxisRaw("Vertical");
-                velocity.y = Input.GetAxisRaw("Horizontal");
+                velocity.x = -vertical;
+                velocity.y = horizontal;
             } 
             else if (currentGate == Gate.XY)
             {
-                velocity.x = Input.GetAxisRaw("Vertical");
-                velocity.y = -Input.GetAxisRaw("Horizontal");
+                velocity.x = vertical;
+                velocity.y = -horizontal;
             }
             UpdateAnimation();
         }
@@ -342,6 +364,8 @@ public class PlayerController : MonoBehaviour
         {
             shaderGameObject.SetActive(true);
         }
+
+        gameManager.UIManager.catMeow.Play();
 
         gameObject.transform.position = new Vector2(other.transform.position.x, other.transform.position.y + 0.4f);
 

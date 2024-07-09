@@ -7,7 +7,7 @@ public class InGameUIManager : MonoBehaviour
 {
     GameManager gameManager;
 
-    public GameObject pauseMenu, winMenu, loseMenu;
+    public GameObject pauseMenu, winMenu, loseMenu, help, mobileInput;
 
     public Image pausePlayIcon;
     public Image[] starImages;
@@ -16,15 +16,20 @@ public class InGameUIManager : MonoBehaviour
 
     public GameObject pausePlayBtn;
 
-    public TextMeshProUGUI minutes, seconds, currentState;
+    public TextMeshProUGUI minutes, seconds, currentState, helpMessage;
 
+    public AudioSource catMeow;
 
+    public Button helpBtn, pauseBtn;
+
+    public CanvasScaler canvasScaler;
     private float timer = 0f;
 
     private void Start()
     {
         // Initialize the timer
         timer = 0f;
+        gameManager = GameManager.instance;
     }
 
     private void Update()
@@ -39,6 +44,11 @@ public class InGameUIManager : MonoBehaviour
         }
 
         currentState.text = gameManager.GenerateCurrentStateString();
+    }
+
+    public void SetCanvas()
+    {
+        canvasScaler.matchWidthOrHeight = gameManager.isMobile ? 0.3f : 0;
     }
 
     private void UpdateTimer()
@@ -77,9 +87,36 @@ public class InGameUIManager : MonoBehaviour
         gameManager.ResetGame();
     }
 
+    public void ShowMobileInput()
+    {
+        mobileInput.SetActive(true);
+    }
+
     public void HomeClicked()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void ShowHelp()
+    {
+        help.SetActive(true);
+
+        if (!gameManager)
+            gameManager = GameManager.instance;
+
+        gameManager.PauseGame();
+
+        int currentLevelHelpIndex = gameManager.data.currentLevel - 1;
+
+        while (gameManager.data.levelHelps[currentLevelHelpIndex] == "") currentLevelHelpIndex--;
+
+        helpMessage.text = gameManager.data.levelHelps[currentLevelHelpIndex];
+    }
+
+    public void CloseHelp()
+    {
+        help.SetActive(false);
+        gameManager.ResumeGame();
     }
 
     public void NextClicked()
@@ -90,13 +127,21 @@ public class InGameUIManager : MonoBehaviour
     public void ShowLoseMenu()
     {
         gameManager.PauseGame();
+        pauseBtn.gameObject.SetActive(false);
+        helpBtn.gameObject.SetActive(false);
+        
         loseMenu.SetActive(true);
     }
 
     public void ShowWinMenu()
     {
         gameManager.PauseGame();
+        pauseBtn.gameObject.SetActive(false);
+        helpBtn.gameObject.SetActive(false);
+
         winMenu.SetActive(true);
+
+        catMeow.Play();
 
         int stars = 1;
 
