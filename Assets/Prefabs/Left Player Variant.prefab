@@ -112,6 +112,14 @@ PrefabInstance:
       propertyPath: walkRight.Array.data[2]
       value: 
       objectReference: {fileID: 1426992802, guid: 6399051548741d54fb484a122fb51051, type: 3}
+    - target: {fileID: 7890253323357303107, guid: 2abe24e04aebdcb44845355f132be5a5, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 0.7916667
+      objectReference: {fileID: 0}
+    - target: {fileID: 7890253323357303107, guid: 2abe24e04aebdcb44845355f132be5a5, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 1.0416666
+      objectReference: {fileID: 0}
     - target: {fileID: 7890253323357303109, guid: 2abe24e04aebdcb44845355f132be5a5, type: 3}
       propertyPath: m_Name
       value: Left Player Variant
@@ -161,7 +169,23 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7890253323357303111, guid: 2abe24e04aebdcb44845355f132be5a5, type: 3}
+      propertyPath: m_Size.x
+      value: 0.7916667
+      objectReference: {fileID: 0}
+    - target: {fileID: 7890253323357303111, guid: 2abe24e04aebdcb44845355f132be5a5, type: 3}
+      propertyPath: m_Size.y
+      value: 1.0416666
+      objectReference: {fileID: 0}
+    - target: {fileID: 7890253323357303111, guid: 2abe24e04aebdcb44845355f132be5a5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 490603579, guid: 6399051548741d54fb484a122fb51051, type: 3}
+    - target: {fileID: 7890253323357303111, guid: 2abe24e04aebdcb44845355f132be5a5, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7890253323357303111, guid: 2abe24e04aebdcb44845355f132be5a5, type: 3}
+      propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

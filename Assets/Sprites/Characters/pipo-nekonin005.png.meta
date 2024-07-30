@@ -3,7 +3,7 @@ guid: c6a5f3a3b187bd94b81363f5d316b4bc
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,6 +64,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -74,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -86,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -98,6 +103,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -110,6 +116,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -122,6 +129,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -132,7 +140,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 7
-        y: 96
+        y: 135
         width: 19
         height: 25
       alignment: 0
@@ -153,7 +161,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 39
-        y: 97
+        y: 136
         width: 19
         height: 25
       alignment: 0
@@ -174,7 +182,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 71
-        y: 96
+        y: 135
         width: 20
         height: 25
       alignment: 0
@@ -195,7 +203,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 8
-        y: 64
+        y: 103
         width: 17
         height: 25
       alignment: 0
@@ -216,7 +224,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 40
-        y: 65
+        y: 104
         width: 18
         height: 25
       alignment: 0
@@ -237,7 +245,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 72
-        y: 64
+        y: 103
         width: 20
         height: 25
       alignment: 0
@@ -258,7 +266,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 5
-        y: 32
+        y: 71
         width: 20
         height: 25
       alignment: 0
@@ -279,7 +287,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 39
-        y: 33
+        y: 72
         width: 18
         height: 25
       alignment: 0
@@ -300,7 +308,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 72
-        y: 32
+        y: 71
         width: 17
         height: 25
       alignment: 0
@@ -321,7 +329,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 7
-        y: 0
+        y: 39
         width: 19
         height: 25
       alignment: 0
@@ -342,7 +350,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 39
-        y: 1
+        y: 40
         width: 19
         height: 25
       alignment: 0
@@ -363,7 +371,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 70
-        y: 0
+        y: 39
         width: 20
         height: 25
       alignment: 0
@@ -379,6 +387,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: pipo-nekonin005_12
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 9
+        width: 30
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 265bb814a392b9f41974f8b8ec31cf24
+      internalID: -460486317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pipo-nekonin005_13
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 8
+        width: 31
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37244eba94a538749a4a43e2f5abdb2c
+      internalID: -672208196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -390,21 +440,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      pipo-nekonin005_4: -1740874790
-      pipo-nekonin005_3: 2100050960
-      pipo-nekonin005_2: -1696332217
-      pipo-nekonin005_10: 304689163
-      pipo-nekonin005_5: -1667502128
-      pipo-nekonin005_11: 493669186
-      pipo-nekonin005_6: -915760588
-      pipo-nekonin005_1: 1141796802
-      pipo-nekonin005_8: 113153727
       pipo-nekonin005_0: -1302217391
+      pipo-nekonin005_1: 1141796802
+      pipo-nekonin005_10: 304689163
+      pipo-nekonin005_11: 493669186
+      pipo-nekonin005_12: -460486317
+      pipo-nekonin005_13: -672208196
+      pipo-nekonin005_2: -1696332217
+      pipo-nekonin005_3: 2100050960
+      pipo-nekonin005_4: -1740874790
+      pipo-nekonin005_5: -1667502128
+      pipo-nekonin005_6: -915760588
       pipo-nekonin005_7: -1596137427
+      pipo-nekonin005_8: 113153727
       pipo-nekonin005_9: 1334953429
-  spritePackingTag: 
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -3,7 +3,7 @@ guid: 6399051548741d54fb484a122fb51051
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,6 +64,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -74,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -86,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -98,6 +103,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -110,6 +116,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -122,17 +129,18 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pipo-nekonin003_0
+      name: Test_0
       rect:
         serializedVersion: 2
         x: 7
-        y: 96
+        y: 135
         width: 19
         height: 25
       alignment: 0
@@ -142,18 +150,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28493210133f1b34891b4b95caabebfb
-      internalID: 294919015
+      spriteID: a8f016ac884c91f4ea12f07cc408cfd6
+      internalID: -1776918288
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pipo-nekonin003_1
+      name: Test_1
       rect:
         serializedVersion: 2
         x: 39
-        y: 97
+        y: 136
         width: 19
         height: 25
       alignment: 0
@@ -163,18 +171,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d39431863971ef45bc01ff65f10b077
-      internalID: 448445802
+      spriteID: 0278d8ce51058b244a26edeaaaa0f635
+      internalID: 490603579
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pipo-nekonin003_2
+      name: Test_2
       rect:
         serializedVersion: 2
         x: 71
-        y: 96
+        y: 135
         width: 20
         height: 25
       alignment: 0
@@ -184,18 +192,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ccb8b3549f03ef48b8fd5062458abc1
-      internalID: -160531843
+      spriteID: 8f04d65aabbc9bd4cb559f40906f3430
+      internalID: 2082328903
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pipo-nekonin003_3
+      name: Test_3
       rect:
         serializedVersion: 2
         x: 8
-        y: 64
+        y: 103
         width: 17
         height: 25
       alignment: 0
@@ -205,18 +213,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2a2de05072ab6e468409d8a5401257e
-      internalID: -1298783495
+      spriteID: 335a6e00d5bc63b4b9a334d7b6bbab03
+      internalID: -628841874
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pipo-nekonin003_4
+      name: Test_4
       rect:
         serializedVersion: 2
         x: 40
-        y: 65
+        y: 104
         width: 18
         height: 25
       alignment: 0
@@ -226,18 +234,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59ce68e830d38ad46ad00ae881a0da36
-      internalID: -849413180
+      spriteID: 965569fdbe61c18418b882a9facdb1ec
+      internalID: -44181420
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pipo-nekonin003_5
+      name: Test_5
       rect:
         serializedVersion: 2
         x: 72
-        y: 64
+        y: 103
         width: 20
         height: 25
       alignment: 0
@@ -247,18 +255,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75fa181fd9de202448790a8fbe9b01db
-      internalID: -336711719
+      spriteID: 3799a8881c0cb634483e7d407f1bc74f
+      internalID: -444135003
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pipo-nekonin003_6
+      name: Test_6
       rect:
         serializedVersion: 2
         x: 5
-        y: 32
+        y: 71
         width: 20
         height: 25
       alignment: 0
@@ -268,18 +276,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f3e5e41c52f3794986cfa74e5229880
-      internalID: -1225830717
+      spriteID: 11e7a917672de44458e04e91e916b473
+      internalID: -234792260
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pipo-nekonin003_7
+      name: Test_7
       rect:
         serializedVersion: 2
         x: 39
-        y: 33
+        y: 72
         width: 18
         height: 25
       alignment: 0
@@ -289,18 +297,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9048bee92c5acee45866a2962726ea98
-      internalID: -201662460
+      spriteID: 56ffa7744ecc5e040af61f44636ffd4b
+      internalID: -76684133
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pipo-nekonin003_8
+      name: Test_8
       rect:
         serializedVersion: 2
         x: 72
-        y: 32
+        y: 71
         width: 17
         height: 25
       alignment: 0
@@ -310,18 +318,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7799f767b9b16ae4bae6f555d186041a
-      internalID: 1426992802
+      spriteID: 5b74a5f34cbcede41bc703fca42b5f94
+      internalID: -812346230
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pipo-nekonin003_9
+      name: Test_9
       rect:
         serializedVersion: 2
         x: 7
-        y: 0
+        y: 39
         width: 19
         height: 25
       alignment: 0
@@ -331,18 +339,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e463dac51170934448445ac0e9b4955b
-      internalID: -1591154515
+      spriteID: b8f14173d00af5c4797e50c60a9e3bb9
+      internalID: -1546552951
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pipo-nekonin003_10
+      name: Test_10
       rect:
         serializedVersion: 2
         x: 39
-        y: 1
+        y: 40
         width: 19
         height: 25
       alignment: 0
@@ -352,18 +360,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cdb89a825eda8444d9713015cebe8953
-      internalID: 1180047076
+      spriteID: 1fd68fb9a4fb92147bf616b2119d74ac
+      internalID: 2070426525
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pipo-nekonin003_11
+      name: Test_11
       rect:
         serializedVersion: 2
         x: 70
-        y: 0
+        y: 39
         width: 20
         height: 25
       alignment: 0
@@ -373,8 +381,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44671eeeb8086be49928e49908b499ee
-      internalID: -35351198
+      spriteID: 91ee91b4007b61e4d8607c9007694483
+      internalID: 388151020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Test_12
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 8
+        width: 30
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3451518b2545694f88fa070e30f3e31
+      internalID: 2084390641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Test_13
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 8
+        width: 31
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af24574925edb3641af750d1d279dfb7
+      internalID: 2027328352
       vertices: []
       indices: 
       edges: []
@@ -390,21 +440,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      pipo-nekonin003_4: -849413180
-      pipo-nekonin003_7: -201662460
-      pipo-nekonin003_5: -336711719
-      pipo-nekonin003_10: 1180047076
-      pipo-nekonin003_6: -1225830717
-      pipo-nekonin003_2: -160531843
-      pipo-nekonin003_9: -1591154515
-      pipo-nekonin003_0: 294919015
-      pipo-nekonin003_8: 1426992802
-      pipo-nekonin003_3: -1298783495
-      pipo-nekonin003_1: 448445802
-      pipo-nekonin003_11: -35351198
-  spritePackingTag: 
+      Test_0: -1776918288
+      Test_1: 490603579
+      Test_10: 2070426525
+      Test_11: 388151020
+      Test_12: 2084390641
+      Test_13: 2027328352
+      Test_2: 2082328903
+      Test_3: -628841874
+      Test_4: -44181420
+      Test_5: -444135003
+      Test_6: -234792260
+      Test_7: -76684133
+      Test_8: -812346230
+      Test_9: -1546552951
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

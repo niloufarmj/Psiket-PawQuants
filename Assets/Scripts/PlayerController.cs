@@ -138,10 +138,40 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("DeadWall"))
+        if (other.gameObject.CompareTag("DeadWallLeft"))
         {
+            velocity = Vector2.zero;
+            transform.position = new Vector2(transform.position.x - 0.6f, transform.position.y);
+            animator.SetBool("Drowning", true);
+
             gameManager.Lose();
         }
+        else if (other.gameObject.CompareTag("DeadWallRight"))
+        {
+            velocity = Vector2.zero;
+            transform.position = new Vector2(transform.position.x + 0.6f, transform.position.y);
+            animator.SetBool("Drowning", true);
+
+            gameManager.Lose();
+        }
+        else if (other.gameObject.CompareTag("DeadWallUp"))
+        {
+            velocity = Vector2.zero;
+            transform.position = new Vector2(transform.position.x, transform.position.y + 0.35f);
+            animator.SetBool("Drowning", true);
+
+            gameManager.Lose();
+        }
+        else if (other.gameObject.CompareTag("DeadWallDown"))
+        {
+            velocity = Vector2.zero;
+            transform.position = new Vector2(transform.position.x, transform.position.y - 0.85f);
+            animator.SetBool("Drowning", true);
+
+            gameManager.Lose();
+        }
+
+
         else if (other.gameObject.CompareTag("Finish"))
         {
             gameManager.PlayerWin(isLeft);

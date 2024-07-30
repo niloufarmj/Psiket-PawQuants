@@ -12,6 +12,10 @@ TagManager:
   - OuterAreaH
   - YGate
   - OuterAreaY
+  - DeadWallLeft
+  - DeadWallRight
+  - DeadWallUp
+  - DeadWallDown
   layers:
   - Default
   - TransparentFX

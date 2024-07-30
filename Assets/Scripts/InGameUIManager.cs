@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,7 +19,7 @@ public class InGameUIManager : MonoBehaviour
 
     public TextMeshProUGUI minutes, seconds, currentState, helpMessage;
 
-    public AudioSource catMeow;
+    public AudioSource catMeow, catAngry, water;
 
     public Button helpBtn, pauseBtn;
 
@@ -130,7 +131,16 @@ public class InGameUIManager : MonoBehaviour
         gameManager.PauseGame();
         pauseBtn.gameObject.SetActive(false);
         helpBtn.gameObject.SetActive(false);
-        
+
+        catAngry.Play();
+        water.Play();
+
+        StartCoroutine(DelayLose());
+    }
+
+    private IEnumerator DelayLose()
+    {
+        yield return new WaitForSeconds(0.7f);
         loseMenu.SetActive(true);
     }
 
